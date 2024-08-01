@@ -18,3 +18,17 @@ and region = 'NA'
 group by 1,2
 order by 1;
 --Across 2019-2022, Vendora sold an average of 89 Macbooks to North American customers each quarter, with average quarterly sales of $143.5K. The average order price of these Macbooks was $1600.
+
+--monthly refund rate for purchases made in 2020
+--count the number of refunds per month (non-null refund date) and calculate the refund rate
+--refund rate is equal to the total number of refunds divided by the total number of orders
+select date_trunc(orders.purchase_ts, month) as month,
+  sum(case when refund_ts is not null then 1 else 0 end) as refunds,
+  sum(case when refund_ts is not null then 1 else 0 end)/count(distinct orders.id)*100 as refund_rate
+from `vendora-431118.vendora.orders` orders
+left join `vendora-431118.vendora.order_status` order_status
+  on orders.id = order_status.order_id
+where orders.purchase_ts between '2020-01-01' and '2020-12-31'
+group by 1
+order by 1;
+

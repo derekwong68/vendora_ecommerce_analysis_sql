@@ -3,8 +3,8 @@
 select date_trunc(orders.purchase_ts, quarter) as purchase_quarter,
   geo_lookup.region as region,
   count(distinct orders.id) as order_count,
-  sum(orders.usd_price) as total_sales,
-  avg(orders.usd_price) as aov
+  round(sum(orders.usd_price),2) as total_sales,
+  round(avg(orders.usd_price),2) as aov
 from `vendora-431118.vendora.orders` orders
 --join customers data
 left join `vendora-431118.vendora.customers` customers
@@ -17,3 +17,4 @@ where lower(orders.product_name) like '%macbook%'
 and region = 'NA'
 group by 1,2
 order by 1;
+--Across 2019-2022, Vendora sold an average of 89 Macbooks to North American customers each quarter, with average quarterly sales of $143.5K. The average order price of these Macbooks was $1600.

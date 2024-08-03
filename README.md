@@ -13,9 +13,11 @@
 -Across all years, Apple Airpod Headphones have the highest count of refunds: 3348 refunds
 
 **Account creation methods (Jan-Feb 2022):**
+
 -Desktop had most new customers (2359 new customers)<br>
 -Tablets have highest AOV ($444), but only 12 purchases <br>
 
 **Marketing channels (all years):**
+
 -Direct - highest number of orders <br>
 -Email - second highest number of orders

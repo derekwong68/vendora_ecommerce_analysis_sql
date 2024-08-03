@@ -45,7 +45,7 @@ group by 1
 order by 1;
 
 
---Monthly refund rates of orders placed in 2020 ranged from 2-3%. In 2021, Apple products had 7 to 30 refunds per month, with the highest refunded-month being March 2021.
+--Monthly refund rates of orders placed in 2020 averages 14% In 2021, Apple products had an average of 340 refunds per month, with the highest refunded-month being December 2021 (687).
 
 select sum(case when refund_ts is not null then 1 else 0 end) as refunds,
   sum(case when refund_ts is not null then 1 else 0 end)/(count(distinct orders.id)) as refund_rate

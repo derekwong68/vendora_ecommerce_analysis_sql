@@ -2,6 +2,7 @@
 
 **North America Macbook quarterly sales trends (all years):**
 -Avg of 89 units sold
+
 -Avg of $143K total sales
 **Refund trends:**
 -2020 monthly refund rates: 14%

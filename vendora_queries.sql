@@ -18,7 +18,7 @@ and region = 'NA'
 group by 1,2
 order by 1;
 
---Across 2019-2022, Vendora sold an average of 89 Macbooks to North American customers each quarter, with average quarterly sales of $143.5K. The average order price of these Macbooks was $1600.
+--**Across 2019-2022, Vendora sold an average of 89 Macbooks to North American customers each quarter, with average quarterly sales of $143.5K. The average order price of these Macbooks was $1600.**
 
 --monthly refund rate for purchases made in 2020
 --count the number of refunds per month (non-null refund date) and calculate the refund rate
@@ -95,5 +95,31 @@ order by 3 desc;
 --Desktop-created accounts also make more expensive purchases, with an AOV of $231. 
 --This AOV is lower than that of customers who created their account on tablets (AOV of $444), though there have only been 12 purchases made on tablets so far.
 
+
+--total number of orders and total sales by region and registration channel
+--channels ranked by total sales, and ordered the dataset by ranking to surface the top channels per region
+with region_orders as(
+select geo_lookup.region,
+  customers.marketing_channel,
+  count(distinct orders.id) as num_orders,
+  sum(orders.usd_price) as total_sales,
+  avg(orders.usd_price) as aov
+from `vendora-431118.vendora.customers` customers
+join `vendora-431118.vendora.geo_lookup` geo_lookup
+  on geo_lookup.country = customers.country_code
+join `vendora-431118.vendora.orders` orders
+  on orders.customer_id = customers.id
+group by 1,2
+order by 1,2)
+
+select *, 
+	row_number() over (partition by region order by num_orders desc) as ranking
+from region_orders
+order by 6 asc
+
+--In this case, we will define “best” as having the highest number of orders. 
+--Across all regions, direct has the highest number of orders.
+--However, note that direct is not really a marketing channel (it indicates customers coming directly to the site). 
+--After direct, email has the second-highest number of orders in each region.
 
 

@@ -6,6 +6,7 @@
 -Avg of $143K total sales
 
 **Refund trends:**
+
 -2020 monthly refund rates: 14% <br>
 -2021 Apple products had an average of 340 monthly refunds<br>
 -Across all years, Thinkpad Laptop has the highest refund rate: 17.6% <br>

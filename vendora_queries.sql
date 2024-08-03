@@ -79,6 +79,21 @@ order by 2 desc;
 --However, this does not mean they have the highest number of refunds - the Apple Airpod Headphones have the highest count of refunds, at 3348 across all years. The gaming monitor and Macbook Air have 1824 and 564 refunds, respectively.
 
 
+--aov and count of new customers by account creation channel in first 2 months of 2022
+select customers.account_creation_method,
+  avg(orders.usd_price) as aov,
+  count(distinct customers.id) as num_customers,
+  count(distinct purchase_ts) as num_products_sold
+from `vendora-431118.vendora.orders` orders
+join `vendora-431118.vendora.customers` customers
+  on orders.customer_id = customers.id 
+where created_on between '2022-01-01' and '2022-02-28'  
+group by 1
+order by 3 desc;
+
+--Desktop had by far the most amount of new customers created in the first two months of 2022, with 2359 new customers compaared to 591 new customers on mobile. 
+--Desktop-created accounts also make more expensive purchases, with an AOV of $231. 
+--This AOV is lower than that of customers who created their account on tablets (AOV of $444), though there have only been 12 purchases made on tablets so far.
 
 
 

@@ -18,7 +18,7 @@ and region = 'NA'
 group by 1,2
 order by 1;
 
---**Across 2019-2022, Vendora sold an average of 89 Macbooks to North American customers each quarter, with average quarterly sales of $143.5K. The average order price of these Macbooks was $1600.**
+--Across 2019-2022, Vendora sold an average of 89 Macbooks to North American customers each quarter, with average quarterly sales of $143.5K. The average order price of these Macbooks was $1600.
 
 --monthly refund rate for purchases made in 2020
 --count the number of refunds per month (non-null refund date) and calculate the refund rate

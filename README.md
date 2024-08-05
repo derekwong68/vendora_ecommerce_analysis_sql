@@ -1,8 +1,6 @@
 # Portfolio Project - Vendora Sales Analysis
 Vendora is a sample e-commerce company that sells popular electronics globally. In this portfolio project, I analyzed a smaple dataset to investigate trends and growth rates in revenue, average order value (AOV), product analysis, marketing channels, and refund rates to surface insights on overall company performance. I also investigated the effectiveness of their recently launched loyalty program to give recommendations on the continuation of the program.
 
-I used Pivot Tables, conditional formatting, aggregation functions, and statistical analysis to clean, analyzem and summarize the insights below, to be delivered to the finance and product team.
-
 # Summary of Insights
 
 **North America Macbook quarterly sales trends (all years):**

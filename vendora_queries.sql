@@ -14,7 +14,7 @@ left join `vendora-431118.vendora.geo_lookup` geo_lookup
   on geo_lookup.country = customers.country_code
 --find Macbooks sold in North America
 where lower(orders.product_name) like '%macbook%'
-and region = 'NA'
+and geo_lookup.region = 'NA'
 group by 1,2
 order by 1;
 

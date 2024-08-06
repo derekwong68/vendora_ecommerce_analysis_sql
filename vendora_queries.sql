@@ -40,7 +40,8 @@ select date_trunc(order_status.refund_ts, month) as month,
 from `vendora-431118.vendora.orders` orders
 left join `vendora-431118.vendora.order_status` order_status
   on orders.id = order_status.order_id
-where order_status.refund_ts between '2021-01-01' and '2021-12-31' and lower(orders.product_name) like '%apple%'
+where order_status.refund_ts between '2021-01-01' and '2021-12-31' 
+	and lower(orders.product_name) like '%apple%'
 group by 1
 order by 1;
 
